@@ -15,3 +15,10 @@ deploy a springboot app to kubernetes:<br/>
     kubectl delete service catalog-service,<br/>
     kubectl delete deployment catalog-service<br/>
     minikube stop<br/>
+
+
+
+maven and gradle using CLI:<br/>
+./mvnw spring-boot:run      // Run The App<br/>
+./mvnw spring-boot:build-image   // Building A Container Image<br/>
+docker run --name k8s-demo-app -p 8080:8080 k8s-demo-app:0.0.1-SNAPSHOT  // run the container<br/>
