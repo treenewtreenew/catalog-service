@@ -22,3 +22,8 @@ maven and gradle using CLI:<br/>
 ./mvnw spring-boot:run      // Run The App<br/>
 ./mvnw spring-boot:build-image   // Building A Container Image<br/>
 docker run --name k8s-demo-app -p 8080:8080 k8s-demo-app:0.0.1-SNAPSHOT  // run the container<br/>
+
+The --dry-run flag allows us to generate the YAML without actually deploying anything to Kubernetes : <br/>
+kubectl create deployment k8s-demo-app --image docker-image-name-demo -o yaml --dry-run=client > k8s/deployment.yaml <br/>
+Service Descriptor : <br/>
+kubectl create service clusterip k8s-demo-app --tcp 80:8080 -o yaml --dry-run=client > k8s/service.yaml <br/>
