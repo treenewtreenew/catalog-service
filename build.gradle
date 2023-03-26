@@ -12,11 +12,22 @@ repositories {
 	mavenCentral()
 }
 
+configurations {
+	compileOnly{
+		extendsFrom annotationProcessor
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+}
+
+bootRun{
+	systemProperty 'spring.profiles.active', 'testdata'
 }
 
 tasks.named('test') {
