@@ -11,9 +11,6 @@ polar:
   greeting: Welcome to the local book catalog!
 
 spring:
-  sql:
-    init:
-      mode: always
   datasource:
     username: user
     password: password
