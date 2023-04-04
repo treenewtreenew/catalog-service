@@ -21,6 +21,7 @@ configurations {
 ext {
 	set('springCloudVersion', "2021.0.6")
 	set('testcontainersVersion', "1.17.3")
+	set('projectName', "catalog-service")
 }
 
 dependencies {
@@ -51,4 +52,9 @@ bootRun{
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+bootBuildImage {
+	imageName = "${projectName}"
+	environment = ["BP_JVM_VERSION" : "17.*"]
 }
